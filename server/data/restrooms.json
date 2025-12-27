@@ -1,0 +1,22 @@
+[
+  {
+    "id": "r_mjov8ues_99hxwy",
+    "name": "aaa",
+    "lat": 47.60402589875028,
+    "lng": -122.33071881541399,
+    "wheelchair": false,
+    "genderNeutral": false,
+    "notes": "",
+    "createdAt": "2025-12-27T22:22:23.476Z"
+  },
+  {
+    "id": "r_mjov90qc_ihe1ll",
+    "name": "bbbb",
+    "lat": 47.613886740365025,
+    "lng": -122.31557340607986,
+    "wheelchair": false,
+    "genderNeutral": false,
+    "notes": "",
+    "createdAt": "2025-12-27T22:22:31.668Z"
+  }
+]
