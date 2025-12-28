@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:8787/api";
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
 export async function fetchRestroomsByBounds(bounds) {
   const url = new URL(`${API_BASE}/restrooms`);

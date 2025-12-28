@@ -18,5 +18,25 @@
     "genderNeutral": false,
     "notes": "",
     "createdAt": "2025-12-27T22:22:31.668Z"
+  },
+  {
+    "id": "r_mjoz6o4z_yefly3",
+    "name": "aa",
+    "lat": 47.61574011300525,
+    "lng": -122.32537243062548,
+    "wheelchair": false,
+    "genderNeutral": false,
+    "notes": "",
+    "createdAt": "2025-12-28T00:12:40.499Z"
+  },
+  {
+    "id": "r_mjozig08_6e17rv",
+    "name": "aaaaaaa",
+    "lat": 47.614507609495874,
+    "lng": -122.33482360839845,
+    "wheelchair": false,
+    "genderNeutral": true,
+    "notes": "",
+    "createdAt": "2025-12-28T00:21:49.832Z"
   }
 ]
