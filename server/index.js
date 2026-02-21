@@ -18,7 +18,7 @@ async function ensureFile() {
   try {
     await fs.access(DATA_FILE);
   } catch {
-    await fs.writeFile(DATA_FILE, "[]", "utf8");
+    fs.writeFile(DATA_FILE, "[]", "utf8");
   }
 }
 
@@ -56,7 +56,7 @@ fastify.get("/api/restrooms", async (req) => {
   const maxLng = q.maxLng !== undefined ? Number(q.maxLng) : undefined;
 
   const hasBounds = [minLat, maxLat, minLng, maxLng].every(
-    (v) => v !== undefined && Number.isFinite(v)
+    (v) => v !== undefined && Number.isFinite(v),
   );
 
   if (!hasBounds) return list;
