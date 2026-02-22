@@ -1,22 +1,27 @@
-const API_BASE = import.meta.env.VITE_API_BASE_URL;
+//const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
 export async function fetchRestroomsByBounds(bounds) {
-  const url = new URL(`${API_BASE}/restrooms`);
+  const params = new URLSearchParams();
 
   if (bounds) {
-    url.searchParams.set("minLat", String(bounds.getSouth()));
-    url.searchParams.set("maxLat", String(bounds.getNorth()));
-    url.searchParams.set("minLng", String(bounds.getWest()));
-    url.searchParams.set("maxLng", String(bounds.getEast()));
+    params.set("minLat", String(bounds.getSouth()));
+    params.set("maxLat", String(bounds.getNorth()));
+    params.set("minLng", String(bounds.getWest()));
+    params.set("maxLng", String(bounds.getEast()));
   }
 
-  const res = await fetch(url.toString());
+  const queryString = params.toString();
+  const url = queryString ? `/api/restrooms?${queryString}` : `/api/restrooms`;
+
+  const res = await fetch(url);
+
   if (!res.ok) throw new Error("Failed to fetch restrooms");
+
   return await res.json();
 }
 
 export async function createRestroom(payload) {
-  const res = await fetch(`${API_BASE}/restrooms`, {
+  const res = await fetch(`/api/restrooms`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),

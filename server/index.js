@@ -104,4 +104,4 @@ fastify.post("/api/restrooms", async (req, reply) => {
   return reply.code(201).send(item);
 });
 
-fastify.listen({ port: 8787, host: "0.0.0.0" });
+fastify.listen({ host: "0.0.0.0", port: 8787 });

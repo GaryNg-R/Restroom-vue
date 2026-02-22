@@ -2,10 +2,11 @@ version: "3.9"
 
 services:
   backend:
-    build: ./server
+    build:
+      context: ./server
     container_name: restroom-backend
-    expose:
-      - "8787"
+    ports:
+      - "8787:8787"
     restart: unless-stopped
 
   frontend:
