@@ -1,0 +1,3 @@
+Hello from Claude!
+
+This file was created and pushed to GitHub as a test.
