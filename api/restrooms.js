@@ -17,7 +17,7 @@ export default function handler(req, res) {
       createdAt: new Date().toISOString(),
     };
     existing.push(newEntry);
-    // Note: writes are ephemeral on Vercel (filesystem is read-only after deploy).
+    // Note: writes are ephemeral on Vercel   (filesystem is read-only after deploy).
     // For persistent storage, replace this with a database (e.g. Supabase, PlanetScale).
     try {
       fs.writeFileSync(filePath, JSON.stringify(existing, null, 2));
