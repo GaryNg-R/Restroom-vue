@@ -1,25 +1,59 @@
-/* ── Design tokens ───────────────────────────── */
+/* ── iOS Design Tokens ────────────────────────── */
 :root {
-  --color-primary: #0d9488;
-  --color-primary-hover: #0f766e;
-  --color-bg: #f8fafc;
-  --color-surface: #ffffff;
-  --color-border: #e2e8f0;
-  --color-text: #0f172a;
-  --color-text-muted: #64748b;
-  --color-error: #dc2626;
-  --color-error-bg: #fef2f2;
-  --color-error-border: #fecaca;
+  /* Brand colours */
+  --color-primary:       #007aff;  /* iOS blue */
+  --color-primary-hover: #0066d6;
+  --color-success:       #34c759;  /* iOS green — toggle ON */
+  --color-danger:        #ff3b30;  /* iOS red */
+  --color-purple:        #af52de;  /* iOS purple */
 
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 14px;
+  /* Backgrounds */
+  --color-bg:            #f2f2f7;  /* iOS grouped table bg */
+  --color-surface:       #ffffff;
+  --color-surface-blur:  rgba(255, 255, 255, 0.80);
 
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+  /* Borders */
+  --color-border:        rgba(0, 0, 0, 0.12);
+  --color-separator:     rgba(60, 60, 67, 0.18);
 
-  font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  /* Text */
+  --color-text:          #000000;
+  --color-text-secondary: rgba(0, 0, 0, 0.60);
+  --color-text-muted:    rgba(0, 0, 0, 0.40);
+
+  /* Error */
+  --color-error:         #ff3b30;
+  --color-error-bg:      rgba(255, 59, 48, 0.08);
+  --color-error-border:  rgba(255, 59, 48, 0.30);
+
+  /* Radii */
+  --radius-sm:    8px;
+  --radius-md:    12px;
+  --radius-lg:    16px;
+  --radius-xl:    20px;
+  --radius-pill:  100px;
+
+  /* Shadows — layered, soft */
+  --shadow-sm:  0 1px 2px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
+  --shadow-md:  0 2px 8px rgba(0,0,0,0.10), 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-lg:  0 8px 32px rgba(0,0,0,0.16), 0 2px 8px rgba(0,0,0,0.08);
+  --shadow-xl:  0 16px 48px rgba(0,0,0,0.20), 0 4px 12px rgba(0,0,0,0.10);
+
+  /* Effects */
+  --blur:        blur(20px);
+
+  /* Safe areas (env() fallbacks to 0) */
+  --safe-top:    env(safe-area-inset-top,    0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left:   env(safe-area-inset-left,   0px);
+  --safe-right:  env(safe-area-inset-right,  0px);
+
+  /* Spring easing for authentic iOS feel */
+  --spring:      cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out:    cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  /* Typography */
+  font-family: system-ui, -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   font-size: 16px;
@@ -44,6 +78,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 h1, h2, h3 {
@@ -64,7 +99,11 @@ button {
   font-family: inherit;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.15s, border-color 0.15s, color 0.15s, box-shadow 0.15s;
+  border: none;
+  transition: opacity 0.15s;
+}
+button:active {
+  opacity: 0.75;
 }
 
 input,
@@ -79,17 +118,29 @@ select {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
-/* ── Dark mode overrides ─────────────────────── */
+/* ── Dark mode — iOS dark palette ────────────── */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg: #0f172a;
-    --color-surface: #1e293b;
-    --color-border: #334155;
-    --color-text: #f1f5f9;
-    --color-text-muted: #94a3b8;
-    --color-error-bg: #450a0a;
-    --color-error-border: #7f1d1d;
+    --color-bg:            #000000;
+    --color-surface:       #1c1c1e;
+    --color-surface-blur:  rgba(28, 28, 30, 0.85);
+
+    --color-border:        rgba(255, 255, 255, 0.12);
+    --color-separator:     rgba(84, 84, 88, 0.60);
+
+    --color-text:          #ffffff;
+    --color-text-secondary: rgba(255, 255, 255, 0.60);
+    --color-text-muted:    rgba(255, 255, 255, 0.40);
+
+    --color-error-bg:      rgba(255, 59, 48, 0.15);
+    --color-error-border:  rgba(255, 59, 48, 0.40);
+
+    --shadow-sm:  0 1px 2px rgba(0,0,0,0.20), 0 1px 4px rgba(0,0,0,0.16);
+    --shadow-md:  0 2px 8px rgba(0,0,0,0.30), 0 1px 3px rgba(0,0,0,0.20);
+    --shadow-lg:  0 8px 32px rgba(0,0,0,0.40), 0 2px 8px rgba(0,0,0,0.20);
+    --shadow-xl:  0 16px 48px rgba(0,0,0,0.50), 0 4px 12px rgba(0,0,0,0.30);
   }
 }

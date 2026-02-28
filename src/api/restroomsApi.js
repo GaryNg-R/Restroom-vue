@@ -34,3 +34,16 @@ export async function createRestroom(payload) {
 
   return await res.json();
 }
+
+export async function submitRating(restroomId, stars) {
+  const res = await fetch(`/api/ratings`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ restroomId, stars }),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(err.error || "Failed to submit rating");
+  }
+  return await res.json(); // { avgRating, ratingCount }
+}
